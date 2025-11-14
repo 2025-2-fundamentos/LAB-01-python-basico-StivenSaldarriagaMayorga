@@ -6,6 +6,11 @@ utilizar pandas, numpy o scipy.
 """
 
 
+
+sdas
+
+
+asd
 def pregunta_02():
     """
     Retorne la cantidad de registros por cada letra de la primera columna como
