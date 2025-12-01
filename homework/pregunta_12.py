@@ -15,3 +15,15 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        columnas = line.split()
+        letra = columnas[0]
+        col5 = columnas[4].split(",")
+        suma = sum(int(par.split(":")[1]) for par in col5)
+        tuplas[letra] = tuplas.get(letra, 0) + suma
+
+    return dict(sorted(tuplas.items()))

@@ -16,3 +16,14 @@ def pregunta_11():
 
 
     """
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        columnas = line.split()
+        valor = int(columnas[1])
+        col4 = columnas[3].split(",")
+        for letra in col4:
+            tuplas[letra] = tuplas.get(letra, 0) + valor
+
+    return dict(sorted(tuplas.items()))

@@ -24,3 +24,16 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        posicion = line.split()
+        clave_tres_letras = posicion[4].split(",")
+        for values in clave_tres_letras:
+            clave, valor = values.split(":")
+            tuplas[clave] = tuplas.get(clave,0)+1
+
+    return dict(sorted(tuplas.items()))
+

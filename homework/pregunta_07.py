@@ -25,3 +25,17 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        posicion = line.split()[1]
+        letra = line.split()[0]
+        if posicion in tuplas:
+            tuplas[posicion].append(letra)
+        else:
+            tuplas[posicion] = [letra]
+
+    resultado = sorted([(int(k), v) for k, v in tuplas.items()])
+    return resultado

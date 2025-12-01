@@ -15,3 +15,22 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+
+    data = open("files/input/data.csv", "r")
+    lista = []
+    tuplas = {}
+
+    for line in data:
+        letra = line.split()[0]
+        numero = int(line.split()[1])
+        if letra in tuplas:
+            tuplas[letra][1] = max(tuplas[letra][1], numero)
+            tuplas[letra][2] = min(tuplas[letra][2], numero)
+        else:
+            tuplas[letra] = [letra, numero, numero]
+
+    for clave in tuplas:
+        lista.append(tuple(tuplas[clave]))
+            
+    return sorted(lista)
+

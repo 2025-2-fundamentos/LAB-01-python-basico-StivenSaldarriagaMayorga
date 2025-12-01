@@ -26,3 +26,17 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        #date = line.split()[2]
+        mes = line.split("-")[1]
+        if mes in tuplas:
+            tuplas[mes] += 1
+        else:
+            tuplas[mes] = 1
+    a = sorted(list(tuplas.items()))
+    return  a
+
+pregunta_04()

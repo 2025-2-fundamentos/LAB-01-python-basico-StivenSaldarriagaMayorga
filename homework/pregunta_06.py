@@ -26,3 +26,26 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        posicion = line.split()
+        clave_tres_letras = posicion[4].split(",")
+
+        for values in clave_tres_letras:
+            clave, valor = values.split(":")
+            valor = int(valor)
+
+            if clave not in tuplas:
+                
+                tuplas[clave] = [valor, valor]
+            else:
+                
+                tuplas[clave][0] = min(tuplas[clave][0], valor)
+                tuplas[clave][1] = max(tuplas[clave][1], valor)
+
+    a = sorted((c, v[0], v[1]) for c, v in tuplas.items())
+    return a
+

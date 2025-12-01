@@ -15,3 +15,18 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+
+    data = open("files/input/data.csv", "r")
+    tuplas = {}
+
+    for line in data:
+        letra = line.split()[0]
+        if line.split()[0] in tuplas:
+            tuplas[letra] += int(line.split()[1])
+        else:
+            tuplas[letra] = int(line.split()[1])
+    
+    a = sorted(list(tuplas.items()))
+    return a
+
+pregunta_03()
